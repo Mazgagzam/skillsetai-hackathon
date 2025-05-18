@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackanomics Anonymizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="leftside">
+        <div class="line1"></div>
+        <div class="circle1"></div>
+        <div class="line2"></div>
+        <div class="circle2"></div>
+    </div>
+    <div class="rightside">
+        <div class="line3"></div>
+        <div class="circle3"></div>
+        <div class="line1"></div>
+        <div class="circle4"></div>
+    </div>
+    <div class="app-container">
+        <header class="app-header">
+            <div>
+                <h1>Hackanomics Anonymizer</h1>
+                <p class="subtitle">Ваши данные в безопасности</p>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div id="chat-history-container"></div>
+
+            <div class="input-container">
+                <div id="uploaded-file-preview" style="display: none;">
+                    <span class="file-name"></span>
+                    <button class="remove-file-btn" title="Удалить файл">&times;</button>
+                </div>
+                <div class="input-bar">
+                    <textarea id="text-input" placeholder="Напишите Hackanomics или прикрепите файл..." rows="1"></textarea>
+                    <div class="input-actions">
+                        <label for="file-input" class="action-button file-attach-button" title="Прикрепить файл (PDF, DOCX, TXT, JPG, PNG)">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 6V17.5C16.5 20.2614 14.2614 22.5 11.5 22.5C8.73858 22.5 6.5 20.2614 6.5 17.5V5C6.5 3.067 8.067 1.5 10 1.5C11.933 1.5 13.5 3.067 13.5 5V15.5C13.5 16.3284 12.8284 17 12 17C11.1716 17 10.5 16.3284 10.5 15.5V6H9V15.5C9 17.433 10.567 19 12.5 19C14.433 19 16 17.433 16 15.5V5C16 2.23858 13.7614 0 11 0C8.23858 0 6 2.23858 6 5V17.5C6 21.366 9.13401 24.5 13 24.5C16.866 24.5 20 21.366 20 17.5V6H18.5H16.5Z"/></svg>
+                        </label>
+                        <input type="file" id="file-input" accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png">
+                        <button id="send-button" class="action-button send-btn" title="Отправить">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.47805 2.43316L21.208 10.0332C22.0773 10.4179 22.0773 11.5821 21.208 11.9668L3.47805 19.5668C2.65316 19.9255 1.83383 19.3234 1.95136 18.4081L3.07318 10.999L1.95136 3.59188C1.83383 2.67656 2.65316 2.07447 3.47805 2.43316ZM4.42686 11.5L4.00005 17.5032L18.0001 11L4.00005 4.49682L4.42686 10.5H9.00005V11.5H4.42686Z"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="output-section">
+                <div id="outputAreaLoading" class="loading-indicator" style="display: none;">Обработка...</div>
+                <pre id="outputArea"></pre>
+                <a id="downloadLink" class="button download-button" style="display:none;" download>Скачать анонимизированный файл</a>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
